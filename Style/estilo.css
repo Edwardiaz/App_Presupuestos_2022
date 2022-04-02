@@ -2,7 +2,7 @@
     float:right;
 }
 
-p.two {
+h1.two, h4.ingre, h4.egre {
     border-style: solid;
     border-width: thin;
   }

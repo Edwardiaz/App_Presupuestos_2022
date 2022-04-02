@@ -15,7 +15,7 @@
     <title>App presupuestos</title>
 </head>
 
-<body>
+<body onload="calcularFechaActual(), calculoTest()">
     
     <div class="w3-content" style="max-width:2000px">
 
@@ -26,11 +26,9 @@
             <h1 id="total">+500</h1>
 
             <div class="w3-padding-32">
-                <div class="w3-bar w3-border">
-                    <a href="#" class="w3-bar-item w3-button">Home</a>
-                    <a href="#" class="w3-bar-item w3-button w3-light-grey">Portfolio</a>
-                    <a href="#" class="w3-bar-item w3-button">Contact</a>
-                    <a href="#" class="w3-bar-item w3-button w3-hide-small">Weddings</a>
+                <div class="w3-bar">
+                    <h4 class="ingre">Ingresos <p id="calcIngre"></p></h4>
+                    <h4 class="egre">Egresos <p id="calcEgre"></p></h4>
                 </div>
             </div>
         </header>
