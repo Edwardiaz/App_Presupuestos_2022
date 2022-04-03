@@ -14,6 +14,11 @@ h1.two, h4.ingre, h4.egre {
     left: 50%;
   }
 
+  #porcentajeGasto{
+      margin-top: 13px;
+      float: right;
+  }
+
 
   body,
         h1 {

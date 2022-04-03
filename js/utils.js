@@ -11,4 +11,6 @@ function calcularFechaActual() {
 function calculoTest(){
     document.getElementById("calcIngre").innerHTML = "+"+600;
     document.getElementById("calcEgre").innerHTML = "-"+100;
+    document.getElementById("porcentajeGasto").innerHTML = 20+"%";
 }
+
