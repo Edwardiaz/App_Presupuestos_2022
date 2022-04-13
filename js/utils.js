@@ -14,17 +14,21 @@ function calculoTest(){
     document.getElementById("porcentajeGasto").innerHTML = 20+"%";
 }
 
-
-var i=0;
-
 function agregar()
 {
+    var menu = document.getElementById("menu").value
+    var descripcion = document.getElementById("descripcion").value
+    var monto = document.getElementById("monto").value
     const lista = document.createElement("li");
-    i++;
-    const node = document.createTextNode("Salario "+i);
+    
+    const node = document.createTextNode(descripcion+" "+monto);
     lista.appendChild(node);
     const ulTag = document.getElementById("lista");
     ulTag.appendChild(lista);
 
+}
+
+function calculoTotal(total){
+    document.getElementById("total").innerHTML = "+"+500;
 }
 
