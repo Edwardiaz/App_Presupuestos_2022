@@ -14,3 +14,17 @@ function calculoTest(){
     document.getElementById("porcentajeGasto").innerHTML = 20+"%";
 }
 
+
+var i=0;
+
+function agregar()
+{
+    const lista = document.createElement("li");
+    i++;
+    const node = document.createTextNode("Salario "+i);
+    lista.appendChild(node);
+    const ulTag = document.getElementById("lista");
+    ulTag.appendChild(lista);
+
+}
+
