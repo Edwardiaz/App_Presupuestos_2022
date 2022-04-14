@@ -80,13 +80,23 @@
             <div class="vertical"></div>
 
             <div class="w3-half">
-                <div id="transaccion" class="btn-group">
-                    <button type="button" class="btn btn-primary" >Ingresos</button>
-                    <button type="button" class="btn btn-secondary">Egresos</button>
+
+                <div id="transaccion" class="tab">
+                    <button id="porDefecto" class="tabButton" onclick="cambioTipoTransaccion(event, 'Ingresos')">Ingresos</button>
+                    <button class="tabButton" onclick="cambioTipoTransaccion(event, 'Egresos')">Egresos</button>
+                </div>
+
+                <div id="Ingresos" class="contenido">
+                    <ul id="listaIngresos">
+                    </ul>
+                </div>
+                  
+                <div id="Egresos" class="contenido">
+                    <ul id="listaEgresos">
+                    </ul>
                 </div>
                 
-                <ul id="lista">
-                </ul>
+                
             </div>
         </div>
 

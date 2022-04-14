@@ -19,8 +19,7 @@ if(document.getElementById("total").innerHTML == ''){
     document.getElementById("total").innerHTML = "+"+0;
 }
 
-function agregar()
-{
+function agregar() {
     /* Consigo los valores en los tags */
     var menu = document.getElementById("menu").value; /* Para validar si es egreso o ingreso, aun no lo uso */
     var descripcion = document.getElementById("descripcion").value;
@@ -37,22 +36,49 @@ function agregar()
         valorActual= '0';
     }
 
-    /* Hago la suma convirtiendo cada variable a decimal*/
-    total = parseFloat(valorActual) + parseFloat(monto);
-
     /* creo el nodo de la nueva transaccion y que agregaré a la lista*/
+    var ulTag = "";
     const lista = document.createElement("li");
-    const node = document.createTextNode(descripcion+" "+monto);
+    var node = "";
+    if(menu=="1"){
+        /* Hago la suma convirtiendo cada variable a decimal*/
+        total = parseFloat(valorActual) + parseFloat(monto);
+        node = document.createTextNode(descripcion+"  +"+monto);
+        ulTag = document.getElementById("listaIngresos");
+    } else {
+        /* Hago la resta convirtiendo cada variable a decimal*/
+        total = parseFloat(valorActual) - parseFloat(monto);
+        node = document.createTextNode(descripcion+"  -"+monto);
+        ulTag = document.getElementById("listaEgresos");
+    }
     lista.appendChild(node);
-    const ulTag = document.getElementById("lista");
 
     /* guardo el total como string para quitar algun simbolo extra*/
     totalString = total.toString();
 
     /*Agrego la transaccion a la lista*/
     ulTag.appendChild(lista);
-    document.getElementById("total").innerHTML = "+"+total;
-    
+    if(total >= 0){
+        document.getElementById("total").innerHTML = " +"+total;
+    } else {
+        document.getElementById("total").innerHTML = total;
+    }    
 }
 
+document.getElementById("porDefecto").click();
 
+function cambioTipoTransaccion(evento, tipoTransaccion) {
+    var contador; 
+    var contenido; 
+    var tabButton;
+    contenido = document.getElementsByClassName("contenido");
+    for (contador = 0; contador < contenido.length; contador++) {
+        contenido[contador].style.display = "none";
+    }
+    tabButton = document.getElementsByClassName("tabButton");
+    for (contador = 0; contador < tabButton.length; contador++) {
+        tabButton[contador].className = tabButton[contador].className.replace(" active", "");
+    }
+    document.getElementById(tipoTransaccion).style.display = "block";
+    evento.currentTarget.className += " active";
+  }
