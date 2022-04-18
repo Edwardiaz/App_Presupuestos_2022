@@ -7,12 +7,12 @@ function calcularFechaActual() {
     document.getElementById("fecha").innerHTML = mes + ' ' + anio;
 }
 
-//function Mostrar(Ingreso,Egreso){
-    //document.getElementById("calcIngre").innerHTML ="";
-    //document.getElementById("calcEgre").innerHTML = "-"+300;
-    //document.getElementById("porcentajeGasto").innerHTML="%";
+function calculoTest(){
+    document.getElementById("calcIngre").innerHTML =""+500;
+    document.getElementById("calcEgre").innerHTML = "-"+300;
+    document.getElementById("porcentajeGasto").innerHTML=20+"%";
     
-//}
+}
 
 var total = 0
 if(document.getElementById("total").innerHTML == ''){

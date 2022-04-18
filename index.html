@@ -20,7 +20,7 @@
     <title>App presupuestos</title>
 </head>
 
-<body onload="calcularFechaActual(), calculoTest()">
+<body onload="calcularFechaActual()">
 
     <div class="w3-content" style="max-width:2000px">
 
@@ -35,16 +35,26 @@
 
             <div class="w3-padding-32">
                 <div class="w3-bar">
-                    <h4 class="ingre">Ingresos <p id="calcIngre"></p>
-                    </h4>
-                    <h4 class="egre">Egresos <p id="calcEgre"></p>
-                    </h4>
+                    <div id="header">
+                        <h4 class="ingre">
+                            <strong>INGRESOS: 
+                                <p id="calcIngre"></p>
+                            </strong>
+                        </h4>
+                        <h4 class="egre">
+                            <strong>EGRESOS: 
+                                <p id="calcEgre"></p>
+                            </strong>
+                        </h4>
+                    </div>
                     <div class="row">
                         <div class="col-10">
-                            <h5>Porcentaje de gastos: </h5>
+                            <strong>
+                                <h5>Porcentaje de gastos: </h5>
+                            </strong>
                         </div>
                         <div class="col-2">
-                            <span id="porcentajeGasto" class="badge badge-dark"></span>
+                            <span id="porcentajeGasto"></span>
                         </div>
                     </div>
 

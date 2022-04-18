@@ -9,6 +9,8 @@ h4.egre {
     border-width: thin;
 }
 
+#header p, #Egresos ul {display: inline;}
+
 .vertical {
     border-left: 1px solid black;
     height: 200px;
@@ -16,7 +18,7 @@ h4.egre {
     left: 50%;
 }
 
-#porcentajeGasto {
+#porcentajeGasto {    
     margin-top: 13px;
     float: right;
     background-color: #28303c;
@@ -38,7 +40,9 @@ h1 {
 }
 
 .imagen1 {
-    background-image: url(../img/background.jpg);
+    background-image: url(../img/Fondo1.jpg);
+    height: 600px;
+    background-position: center;
 }
 
 /*Estilo al tag general de select*/
