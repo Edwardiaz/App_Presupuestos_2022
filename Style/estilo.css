@@ -19,7 +19,9 @@ h3.cambiar{
     color: darkblue;
 }
 
-#header p, #Egresos ul {display: inline;}
+#header p, #Egresos ul {
+    display: inline;
+}
 
 .vertical {
     border-left: 1px solid black;
@@ -28,8 +30,9 @@ h3.cambiar{
     left: 50%;
 }
 
-#porcentajeGasto {    
-    margin-top: 13px;
+#porcentajeGasto { 
+    margin-top: 13px;   
+    display: inline;
     float: right;
     background-color: midnightblue;
     color: white;

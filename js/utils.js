@@ -22,8 +22,16 @@ if(document.getElementById("calcEgre").innerHTML == ''){
 if(document.getElementById("porcentajeGasto").innerHTML == ''){
     document.getElementById("porcentajeGasto").innerHTML = 0+"%";
 }
-var tag = document.getElementsByTagName("span");
-tag.classList.add("badge badge-dark");
+function aplicarAtributos(){
+    var tag = document.getElementsByTagName("span");
+    //const nodo3 = document.querySelectorAll("span");
+    for (let i = 0; i < tag.length; i++) {
+        if(!tag[i].getAttribute('class')){
+            tag[i].setAttribute("id", "porcentajeGasto");
+            tag[i].setAttribute("class", "badge");
+        }
+    }
+}
 
 function agregar() {
     /* Consigo los valores en los tags */
@@ -57,25 +65,28 @@ function agregar() {
 
     /* creo el nodo de la nueva transaccion y que agregaré a la lista*/
     var ulTag = "";
-    const lista = document.createElement("li");
-    const span = document.createElement("span");
-    var node = "";
-    var node2 = "";
+    var lista = "", span = "";
+    var nodo1 = "", nodo2 = "";
     montoFloat = parseFloat(monto);
     if(menu=="1"){
         /* Hago la suma convirtiendo cada variable a decimal */
         total = parseFloat(valorActual) + montoFloat;
+
+        lista = document.createElement("li");
 
         /* Suma total solo ingresos */
         totalIngresos = parseFloat(valorActualIngresos) + montoFloat
         document.getElementById("calcIngre").innerHTML = " +"+totalIngresos;
 
         /* creacion del tag para agregarlo a la lista */
-        node = document.createTextNode(descripcion+"  +"+monto);
+        nodo1 = document.createTextNode(descripcion+"  +"+monto);
         ulTag = document.getElementById("listaIngresos");
     } else {
         /* Hago la resta convirtiendo cada variable a decimal*/
         total = parseFloat(valorActual) - montoFloat;
+
+        lista = document.createElement("li");
+        span = document.createElement("span");
 
         /* Suma total solo egresos */
         totalEgresos = parseFloat(valorActualEgresos) + montoFloat
@@ -83,24 +94,26 @@ function agregar() {
         
         /* creacion del tag para agregarlo a la lista */
         var porcentaje = calcDetalleEgreso(montoFloat, totalIngresos);
-        node = document.createTextNode(descripcion+"  -"+monto);
-        node2 = document.createTextNode(porcentaje);
+        nodo1 = document.createTextNode(descripcion+"  -"+monto);
+        nodo2 = document.createTextNode(porcentaje);
         ulTag = document.getElementById("listaEgresos");
     }
-    lista.appendChild(node);
-    if(node2 != ""){
-        span.appendChild(node2);
+    lista.appendChild(nodo1);
+    /*Agrego la transaccion a la lista y verifico si existe algo en nodo2 asi se procede a agregar el tag de dicho nodo*/
+    ulTag.appendChild(lista);
+    if(nodo2 != ""){
+        span.appendChild(nodo2);
+        ulTag.appendChild(span);
     }
+
     calcPorcentajeGasto(totalIngresos, totalEgresos);
     
-    /*Agrego la transaccion a la lista*/
-    ulTag.appendChild(lista);
-    ulTag.appendChild(span);
     if(total >= 0){
         document.getElementById("total").innerHTML = " +"+total;
     } else {
         document.getElementById("total").innerHTML = total;
-    }    
+    }
+    aplicarAtributos();    
 }
 
 function calcPorcentajeGasto(totalIngreso, totalEgreso) {
@@ -115,6 +128,7 @@ function calcDetalleEgreso(montoEgreso, totalIngreso) {
     return porcentaje+"%";
 }
 
+/* Pone por defecto el tab cuyo id es porDefecto */
 document.getElementById("porDefecto").click();
 
 function cambioTipoTransaccion(evento, tipoTransaccion) {
