@@ -27,9 +27,7 @@ function aplicarAtributos(){
     //const nodo3 = document.querySelectorAll("span");
     for (let i = 0; i < tag.length; i++) {
         if(!tag[i].getAttribute('class')){
-            tag[i].setAttribute("id", "porcentajeGasto");
-            tag[i].setAttribute("id", "egresosporcentaje");
-            tag[i].setAttribute("class=badge");
+            tag[i].setAttribute("id", "porcentajeEgreso");
             tag[i].setAttribute("class", "badge");
         }
     }
@@ -41,28 +39,28 @@ function agregar() {
     var descripcion = document.getElementById("descripcion").value;
     var monto = document.getElementById("monto").value;
 
-    var tempTotal = document.getElementById("total").innerHTML;
-    var tempTotalIngresos = document.getElementById("calcIngre").innerHTML;
+    var valorActual = document.getElementById("total").innerHTML;
+    var valorActualIngresos = document.getElementById("calcIngre").innerHTML;
     var tempTotalEgresos = document.getElementById("calcEgre").innerHTML;
 
     if(monto==""){
         monto = 0;
     }
 
-    var valorActual = tempTotal.replace("+","");
-    var valorActualIngresos = tempTotalIngresos.replace("+", "");
-    var valorActualEgresos = tempTotalEgresos.replace("-", "");
+  /*   var valorActual = tempTotal.replace("+","");
+    var valorActualIngresos = tempTotalIngresos.replace("+", "");*/
+    var valorActualEgresos = tempTotalEgresos.replace("-", ""); 
 
-    if(valorActual==undefined || valorActual== ""){
-        valorActual= '0';
+    if(valorActual=="+0" || valorActual== "" || valorActual==" +0.00"){
+        valorActual= '+0.00';
     }
 
     if(valorActualIngresos==undefined || valorActualIngresos== ""){
-        valorActualIngresos= '0';
+        valorActualIngresos= '+0.00';
     }
 
     if(valorActualEgresos==undefined || valorActualEgresos== ""){
-        valorActualEgresos= '0';
+        valorActualEgresos= '0.00';
     }
 
     /* creo el nodo de la nueva transaccion y que agregaré a la lista*/
@@ -83,7 +81,7 @@ function agregar() {
         /* creacion del tag para agregarlo a la lista */
         nodo1 = document.createTextNode(descripcion+"  +"+montoFloat.toFixed(2));
         ulTag = document.getElementById("listaIngresos");
-    } else {
+    } else if(menu=="2" && valorActual != "+0.00") {
         /* Hago la resta convirtiendo cada variable a decimal*/
         total = parseFloat(valorActual) - montoFloat;
 
@@ -99,6 +97,8 @@ function agregar() {
         nodo1 = document.createTextNode(descripcion+"  -"+montoFloat.toFixed(2));
         nodo2 = document.createTextNode(porcentaje);
         ulTag = document.getElementById("listaEgresos");
+    } else {
+        alert("Tu cuenta posee un saldo de $0.00, no puedes generar una transacción de egreso.")
     }
     lista.appendChild(nodo1);
     /*Agrego la transaccion a la lista y verifico si existe algo en nodo2 asi se procede a agregar el tag de dicho nodo*/

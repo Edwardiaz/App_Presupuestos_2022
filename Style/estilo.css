@@ -32,11 +32,18 @@ h3.cambiar{
 
 #porcentajeGasto {    
     display: inline;
+    margin: 13px;
     float: right;
     background-color: midnightblue;
     color: white;
 }
 
+#porcentajeEgreso {    
+    display: inline;
+    float: right;
+    background-color: midnightblue;
+    color: white;
+}
 
 body,
 h1 {
