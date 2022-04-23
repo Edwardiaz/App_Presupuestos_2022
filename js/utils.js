@@ -76,10 +76,10 @@ function agregar() {
 
         /* Suma total solo ingresos */
         totalIngresos = parseFloat(valorActualIngresos) + montoFloat
-        document.getElementById("calcIngre").innerHTML = " +"+totalIngresos;
+        document.getElementById("calcIngre").innerHTML = " +"+totalIngresos.toFixed(2);
 
         /* creacion del tag para agregarlo a la lista */
-        nodo1 = document.createTextNode(descripcion+"  +"+monto);
+        nodo1 = document.createTextNode(descripcion+"  +"+montoFloat.toFixed(2));
         ulTag = document.getElementById("listaIngresos");
     } else {
         /* Hago la resta convirtiendo cada variable a decimal*/
@@ -90,11 +90,11 @@ function agregar() {
 
         /* Suma total solo egresos */
         totalEgresos = parseFloat(valorActualEgresos) + montoFloat
-        document.getElementById("calcEgre").innerHTML = " -"+totalEgresos;
+        document.getElementById("calcEgre").innerHTML = " -"+totalEgresos.toFixed(2);
         
         /* creacion del tag para agregarlo a la lista */
         var porcentaje = calcDetalleEgreso(montoFloat, totalIngresos);
-        nodo1 = document.createTextNode(descripcion+"  -"+monto);
+        nodo1 = document.createTextNode(descripcion+"  -"+montoFloat.toFixed(2));
         nodo2 = document.createTextNode(porcentaje);
         ulTag = document.getElementById("listaEgresos");
     }
@@ -109,9 +109,9 @@ function agregar() {
     calcPorcentajeGasto(totalIngresos, totalEgresos);
     
     if(total >= 0){
-        document.getElementById("total").innerHTML = " +"+total;
+        document.getElementById("total").innerHTML = " +"+total.toFixed(2);
     } else {
-        document.getElementById("total").innerHTML = total;
+        document.getElementById("total").innerHTML = total.toFixed(2);
     }
     aplicarAtributos();    
 }
