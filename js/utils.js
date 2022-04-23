@@ -28,6 +28,8 @@ function aplicarAtributos(){
     for (let i = 0; i < tag.length; i++) {
         if(!tag[i].getAttribute('class')){
             tag[i].setAttribute("id", "porcentajeGasto");
+            tag[i].setAttribute("id", "egresosporcentaje");
+            tag[i].setAttribute("class=badge");
             tag[i].setAttribute("class", "badge");
         }
     }
