@@ -30,8 +30,7 @@ h3.cambiar{
     left: 50%;
 }
 
-#porcentajeGasto { 
-    margin-top: 13px;   
+#porcentajeGasto {    
     display: inline;
     float: right;
     background-color: midnightblue;
