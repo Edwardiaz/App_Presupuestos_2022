@@ -19,8 +19,9 @@ h3.cambiar{
     color: darkblue;
 }
 
-#header p, #Egresos ul {
+#header p, #Egresos ul, #Ingresos ul {
     display: inline;
+    list-style-type:none
 }
 
 .vertical {
@@ -38,8 +39,8 @@ h3.cambiar{
     color: white;
 }
 
-#porcentajeEgreso {    
-    display: inline;
+#porcentajeEgreso {
+    transform: translate(0px,-21px);
     float: right;
     background-color: midnightblue;
     color: white;
