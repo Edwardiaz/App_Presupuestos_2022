@@ -38,8 +38,8 @@ h3.cambiar{
     color: white;
 }
 
-#porcentajeEgreso {    
-    display: inline;
+#porcentajeEgreso {
+    transform: translate(0px,-21px);
     float: right;
     background-color: midnightblue;
     color: white;
