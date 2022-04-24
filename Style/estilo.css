@@ -19,8 +19,9 @@ h3.cambiar{
     color: darkblue;
 }
 
-#header p, #Egresos ul {
+#header p, #Egresos ul, #Ingresos ul {
     display: inline;
+    list-style-type:none
 }
 
 .vertical {
