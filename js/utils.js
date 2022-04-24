@@ -84,19 +84,22 @@ function agregar() {
     } else if(menu=="2" && valorActual != "+0.00") {
         /* Hago la resta convirtiendo cada variable a decimal*/
         total = parseFloat(valorActual) - montoFloat;
+        if(total < 0){
+            alert("Tus fondos son insuficientes...")
+        } else {
+            lista = document.createElement("li");
+            span = document.createElement("span");
 
-        lista = document.createElement("li");
-        span = document.createElement("span");
-
-        /* Suma total solo egresos */
-        totalEgresos = parseFloat(valorActualEgresos) + montoFloat
-        document.getElementById("calcEgre").innerHTML = " -"+totalEgresos.toFixed(2);
-        
-        /* creacion del tag para agregarlo a la lista */
-        var porcentaje = calcDetalleEgreso(montoFloat, totalIngresos);
-        nodo1 = document.createTextNode(descripcion+"  -"+montoFloat.toFixed(2));
-        nodo2 = document.createTextNode(porcentaje);
-        ulTag = document.getElementById("listaEgresos");
+            /* Suma total solo egresos */
+            totalEgresos = parseFloat(valorActualEgresos) + montoFloat
+            document.getElementById("calcEgre").innerHTML = " -"+totalEgresos.toFixed(2);
+            
+            /* creacion del tag para agregarlo a la lista */
+            var porcentaje = calcDetalleEgreso(montoFloat, totalIngresos);
+            nodo1 = document.createTextNode(descripcion+"  -"+montoFloat.toFixed(2));
+            nodo2 = document.createTextNode(porcentaje);
+            ulTag = document.getElementById("listaEgresos");
+        }
     } else {
         alert("Tu cuenta posee un saldo de $0.00, no puedes generar una transacción de egreso.")
     }
@@ -110,11 +113,8 @@ function agregar() {
 
     calcPorcentajeGasto(totalIngresos, totalEgresos);
     
-    if(total >= 0){
-        document.getElementById("total").innerHTML = " +"+total.toFixed(2);
-    } else {
-        document.getElementById("total").innerHTML = total.toFixed(2);
-    }
+    document.getElementById("total").innerHTML = " +"+total.toFixed(2);
+    
     aplicarAtributos();    
 }
 
