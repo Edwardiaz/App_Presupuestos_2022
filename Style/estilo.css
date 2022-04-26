@@ -14,6 +14,18 @@ h4.ingre {
     color: white;
 }
 
+#boton{
+background-color: darkblue;
+color: white;
+}
+
+#agregar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+
 h3.w3-xlarge,
 h3.cambiar{
     color: darkblue;
@@ -21,7 +33,7 @@ h3.cambiar{
 
 #header p, #Egresos ul, #Ingresos ul {
     display: inline;
-    list-style-type:none
+    list-style-type:none;
 }
 
 .vertical {
@@ -35,14 +47,14 @@ h3.cambiar{
     display: inline;
     margin: 13px;
     float: right;
-    background-color: midnightblue;
+    background-color: darkblue;
     color: white;
 }
 
 #porcentajeEgreso {
     transform: translate(0px,-21px);
     float: right;
-    background-color: midnightblue;
+    background-color: darkblue;
     color: white;
 }
 
